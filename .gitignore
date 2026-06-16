@@ -1,0 +1,15 @@
+sheets/
+uploads/
+新キャラ資料/
+*.psd
+*.clip
+*.kra
+*.xcf
+__pycache__/
+*.pyc
+node_modules/
+dist/
+public/*
+!public/slices2/
+.DS_Store
+Thumbs.db
