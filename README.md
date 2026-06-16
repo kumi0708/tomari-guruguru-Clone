@@ -104,7 +104,10 @@ http://127.0.0.1:4173/guruguru.html
 
 ## ライセンス
 
-プログラムコードは MIT License で公開しています。詳細は `LICENSE` を参照してください。
+このリポジトリは、プログラムコードとキャラクター画像でライセンスを分けています。
+
+- プログラムコード: MIT License。詳細は `LICENSE` を参照してください。
+- キャラクター画像: `public/slices2/A/*.png` は MIT License の対象外です。詳細は `ASSET_LICENSE.md` を参照してください。
 
 ## 技術スタック
 
