@@ -2,8 +2,8 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join, posix } from 'node:path';
 
 const DIST = 'dist';
-const HTML_FILES = ['index.html', 'talk.html', 'guruguru.html'];
-const SHEETS = ['A', 'B', 'C', 'D', 'E', 'F'];
+const HTML_FILES = ['index.html', 'guruguru.html'];
+const SHEET = 'A';
 
 function fail(message) {
   console.error(`Pages build verification failed: ${message}`);
@@ -45,25 +45,25 @@ function assertReferencedRelativeAssetsExist(file, html) {
 }
 
 function assertSliceImages() {
-  let foundAnySlice = false;
-  for (const sheet of SHEETS) {
-    const dir = join(DIST, 'slices2', sheet);
-    if (!existsSync(dir)) continue;
-    const webpFiles = readdirSync(dir).filter((name) => name.endsWith('.webp'));
-    if (webpFiles.length === 0) continue;
-    foundAnySlice = true;
-    if (webpFiles.length !== 25) {
-      fail(`${posix.join('dist', 'slices2', sheet)} should contain 25 webp files, found ${webpFiles.length}`);
-    }
-    for (let r = 0; r < 5; r += 1) {
-      for (let c = 0; c < 5; c += 1) {
-        assertFile(join(dir, `r${r}c${c}.webp`));
-      }
-    }
+  const dir = join(DIST, 'slices2', SHEET);
+  if (!existsSync(dir)) {
+    console.log('No slice image directory found; skipping slice image verification for program-only build.');
+    return;
   }
 
-  if (!foundAnySlice) {
+  const webpFiles = readdirSync(dir).filter((name) => name.endsWith('.webp'));
+  if (webpFiles.length === 0) {
     console.log('No slice images found; skipping slice image verification for program-only build.');
+    return;
+  }
+
+  if (webpFiles.length !== 25) {
+    fail(`${posix.join('dist', 'slices2', SHEET)} should contain 25 webp files, found ${webpFiles.length}`);
+  }
+  for (let r = 0; r < 5; r += 1) {
+    for (let c = 0; c < 5; c += 1) {
+      assertFile(join(dir, `r${r}c${c}.webp`));
+    }
   }
 }
 

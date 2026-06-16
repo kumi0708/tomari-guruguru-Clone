@@ -7,14 +7,13 @@ export default defineConfig(({ command }) => ({
   plugins: [react()],
   server: {
     host: '127.0.0.1',
-    open: '/talk.html',
+    open: '/guruguru.html',
   },
   build: {
     rollupOptions: {
       input: {
         main: resolve(import.meta.dirname, 'index.html'),
         guruguru: resolve(import.meta.dirname, 'guruguru.html'),
-        talk: resolve(import.meta.dirname, 'talk.html'),
       },
     },
   },
