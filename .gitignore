@@ -5,11 +5,13 @@ uploads/
 *.clip
 *.kra
 *.xcf
+A_source.png
 __pycache__/
 *.pyc
 node_modules/
 dist/
 public/*
 !public/slices2/
+!public/slices2/**
 .DS_Store
 Thumbs.db

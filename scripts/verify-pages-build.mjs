@@ -51,18 +51,18 @@ function assertSliceImages() {
     return;
   }
 
-  const webpFiles = readdirSync(dir).filter((name) => name.endsWith('.webp'));
-  if (webpFiles.length === 0) {
+  const pngFiles = readdirSync(dir).filter((name) => name.endsWith('.png'));
+  if (pngFiles.length === 0) {
     console.log('No slice images found; skipping slice image verification for program-only build.');
     return;
   }
 
-  if (webpFiles.length !== 25) {
-    fail(`${posix.join('dist', 'slices2', SHEET)} should contain 25 webp files, found ${webpFiles.length}`);
+  if (pngFiles.length !== 25) {
+    fail(`${posix.join('dist', 'slices2', SHEET)} should contain 25 png files, found ${pngFiles.length}`);
   }
   for (let r = 0; r < 5; r += 1) {
     for (let c = 0; c < 5; c += 1) {
-      assertFile(join(dir, `r${r}c${c}.webp`));
+      assertFile(join(dir, `r${r}c${c}.png`));
     }
   }
 }

@@ -2,7 +2,7 @@
 
 マウスに追従して25方向に振り向く、ブラウザアバター用の最小プログラムです。
 
-この配布フォルダには、キャラクター画像・音声・生成素材は含めていません。自分が権利を持つ素材、または使用許可を得た素材を `public/slices2/A/` に配置して使ってください。
+自分が権利を持つ素材、または使用許可を得た素材を `public/slices2/A/` に配置して使ってください。
 
 ## セットアップ
 
@@ -43,13 +43,13 @@ http://127.0.0.1:5173/guruguru.html
 画像パス:
 
 ```text
-public/slices2/A/r{行}c{列}.webp
+public/slices2/A/r{行}c{列}.png
 ```
 
 例:
 
 ```text
-public/slices2/A/r2c2.webp
+public/slices2/A/r2c2.png
 ```
 
 ## 25方向
@@ -72,7 +72,7 @@ public/slices2/A/r2c2.webp
 必要なファイルは合計25枚です。
 
 ```text
-public/slices2/A/r0c0.webp ... r4c4.webp
+public/slices2/A/r0c0.png ... r4c4.png
 ```
 
 `src/character-config.js` の `basePath`、`defaultSheet`、`ext` で参照先や画像形式を切り替えできます。

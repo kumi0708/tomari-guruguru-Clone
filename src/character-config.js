@@ -3,7 +3,7 @@
 
 export default {
   basePath: 'slices2',
-  ext: 'webp',
+  ext: 'png',
   rows: 5,
   cols: 5,
   defaultSheet: 'A',
